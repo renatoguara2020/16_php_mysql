@@ -10,7 +10,7 @@
   // ASSUNTO DA AULA
   $stmt = $conn->prepare("INSERT INTO itens (nome, descricao) VALUES (:nome, :descricao)");
 
-  $nome = "Suporte monitor novo";
+  $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
   $descricao = "O suporte está novo e na caixa ainda.";
 
   $stmt->bindParam(":nome", $nome);

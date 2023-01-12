@@ -6,6 +6,8 @@
   $pass = "";
 
   $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+  $stmt->$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stmt->$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
   // ASSUNTO DA AULA
   $stmt = $conn->prepare("INSERT INTO itens (nome, descricao) VALUES (:nome, :descricao)");
